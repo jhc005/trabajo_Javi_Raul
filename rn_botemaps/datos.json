@@ -5,7 +5,7 @@
       "nombre": "Botellón del Paseo del Salón",
       "ubicacion": "Zona centro de Granada",
       "pueblo": "Granada",
-      "foto": "https://upload.wikimedia.org/wikipedia/commons/5/55/Paseo_del_Salon_Granada.jpg",
+      "foto": "https://turismo.granada.org/sites/default/files/2023-09/_DSC4837.jpg",
       "descripcion": "El Paseo del Salón es una de las zonas más conocidas para botellones en Granada, especialmente entre universitarios. Su cercanía al centro y al río Genil lo convierte en un punto de encuentro habitual durante los fines de semana. Es una zona amplia con buen ambiente nocturno, aunque suele estar vigilada.",
       "reseñas": []
     },
@@ -14,7 +14,7 @@
       "nombre": "Botellón del Parque Tico Medina",
       "ubicacion": "Zona Zaidín",
       "pueblo": "Granada",
-      "foto": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Parque_Tico_Medina_Granada.jpg",
+      "foto": "https://turispain.es/wp-content/uploads/2025/05/Parque-Tico-Medina-1.jpeg",
       "descripcion": "El Parque Tico Medina es una alternativa popular para hacer botellón en Granada, especialmente cuando otras zonas están más controladas. Es un espacio amplio, algo más apartado del centro, lo que permite reuniones más tranquilas y grupos grandes.",
       "reseñas": []
     },
@@ -23,7 +23,7 @@
       "nombre": "Botellón del Campus de Cartuja",
       "ubicacion": "Campus Universitario de Cartuja",
       "pueblo": "Granada",
-      "foto": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Campus_de_Cartuja_Granada.jpg",
+      "foto": "https://i.ytimg.com/vi/jfvHlrP3il8/maxresdefault.jpg",
       "descripcion": "El Campus de Cartuja es frecuentado por estudiantes que organizan botellones antes de bajar al centro. Sus espacios abiertos y zonas verdes lo hacen atractivo, aunque suele haber presencia policial en determinadas fechas.",
       "reseñas": []
     },
@@ -32,7 +32,7 @@
       "nombre": "Botellón del Mirador de San Miguel Alto",
       "ubicacion": "Barrio del Albaicín",
       "pueblo": "Granada",
-      "foto": "https://upload.wikimedia.org/wikipedia/commons/4/4f/Mirador_de_San_Miguel_Alto.jpg",
+      "foto": "https://rinconesdegranada.com/wp-content/uploads/2018/01/ERMITA-DE-SAN-MIGUEL-ALTO.jpg",
       "descripcion": "El Mirador de San Miguel Alto ofrece vistas espectaculares de la Alhambra y la ciudad, lo que lo convierte en un lugar especial para reuniones nocturnas. Aunque no es un botellón masivo, es popular para grupos pequeños que buscan un ambiente más relajado.",
       "reseñas": []
     },
@@ -41,9 +41,55 @@
       "nombre": "Botellón del Parque García Lorca",
       "ubicacion": "Zona Camino de Ronda",
       "pueblo": "Granada",
-      "foto": "https://upload.wikimedia.org/wikipedia/commons/7/73/Parque_Federico_Garcia_Lorca_Granada.jpg",
+      "foto": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/52000/52386-Parque-Garcia-Lorca.jpg",
       "descripcion": "El Parque Federico García Lorca es uno de los espacios verdes más grandes de Granada y, en ocasiones, es utilizado para botellones discretos. Es una zona accesible y bien comunicada, aunque con controles frecuentes en horarios nocturnos.",
+      "reseñas": []
+    },
+    {
+      "id": "6",
+      "nombre": "Botellón de la Fuente de las Batallas",
+      "ubicacion": "Centro histórico",
+      "pueblo": "Granada",
+      "foto": "https://turismo.granada.org/sites/default/files/2024-10/Fuente_de_las_Batallas_-_Granada_-_02.jpg",
+      "descripcion": "La Fuente de las Batallas es un punto de encuentro céntrico popular entre jóvenes. Su amplia plaza permite reuniones y es ideal para comenzar la noche antes de ir al centro.",
+      "reseñas": []
+    },
+    {
+      "id": "7",
+      "nombre": "Botellón del Parque del Triunfo",
+      "ubicacion": "Barrio del Realejo",
+      "pueblo": "Granada",
+      "foto": "https://www.granadadirect.com/images/rincones/triunfo/fuente-triunfo.jpg",
+      "descripcion": "El Parque del Triunfo es un espacio verde frecuentado por grupos de estudiantes. Es más tranquilo que las zonas céntricas y permite disfrutar de la tarde y noche al aire libre.",
+      "reseñas": []
+    },
+    {
+      "id": "8",
+      "nombre": "Botellón de la Plaza de Toros",
+      "ubicacion": "Zona Camino de Ronda",
+      "pueblo": "Granada",
+      "foto": "https://spaindmsmedia.newmindmedia.com/wsimgs/A2D2B48284C1D7D022290FF9C3A888B4297248EB.jpg",
+      "descripcion": "La Plaza de Toros es conocida por ser un punto de encuentro alternativo. Aunque no es muy grande, se utiliza para reuniones de grupos medianos y es bastante accesible.",
+      "reseñas": []
+    },
+    {
+      "id": "9",
+      "nombre": "Botellón de la Carrera del Genil",
+      "ubicacion": "Zona centro-sur",
+      "pueblo": "Granada",
+      "foto": "https://photos.wikimapia.org/p/00/01/57/87/62_big.jpg",
+      "descripcion": "La Carrera del Genil es un lugar amplio y abierto, ideal para botellones cuando se busca un espacio más relajado y con menor control policial.",
+      "reseñas": []
+    },
+    {
+      "id": "10",
+      "nombre": "Botellón de la Alhambra",
+      "ubicacion": "Zona monumental",
+      "pueblo": "Granada",
+      "foto": "https://media.tacdn.com/media/attractions-splice-spp-674x446/12/42/ef/47.jpg",
+      "descripcion": "Aunque es más turístico, la zona alrededor de la Alhambra a veces sirve como punto de encuentro para grupos pequeños, aprovechando las vistas panorámicas de la ciudad.",
       "reseñas": []
     }
   ]
 }
+
