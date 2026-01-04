@@ -1,29 +1,26 @@
-import { FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { Colors, GlobalStyles } from '../estilos/GlobalStyles'
-import { Botellon, Reseña, Reseñas } from '../model/Tipos'
+import { Botellon, Reseña} from '../model/Tipos'
 import { Image } from 'expo-image'
 import ReviewCard from './ReviewCard'
 import FilaEstrellas from './FilaEstrellas'
 import Boton from './Boton'
-<<<<<<< HEAD
-import { v4 } from "react-native-uuid/dist/v4";
-=======
 import { v4 } from 'react-native-uuid/dist/v4'
 import MapView, { Marker } from 'react-native-maps'
->>>>>>> rama_raul
 
 type DetalleBotellonProps={
     tarjetaSelec: Botellon
     cerrarModal: () => void
     onNuevaReseña:(id: string, reseña: Reseña) => void
+    eliminarBotellon: () => void 
 }
 type NuevaReseña={
   comentario: string
   puntuacion: number
 }
 
-export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña} :DetalleBotellonProps) {
+export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña, eliminarBotellon} :DetalleBotellonProps) {
   
   const [puntuacion, setPuntuacion] =useState(0)
   const [comentario, setComentario]=useState("")
@@ -116,6 +113,11 @@ export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaRese�
               texto={"SALIR"}
               onPress={cerrarModal}/>
             </View>
+            <View style={styles.botonEliminar}>
+              <Boton
+              texto={"ELIMINAR"}
+              onPress={eliminarBotellon}/>
+            </View>
           </View>
             
         </View>
@@ -139,11 +141,20 @@ const styles = StyleSheet.create({
       ...GlobalStyles.boton,
       justifyContent:"center",
       alignItems:"center",
-      marginTop:20,
+      marginTop:10,
       paddingVertical:2,
-      marginBottom:10,
       marginLeft:10,
       marginRight:10
+    },
+    botonEliminar:{
+      backgroundColor:"#FF0000",
+      borderRadius: 14,
+      justifyContent:"center",
+      alignItems:"center",
+      marginTop:10,
+      paddingVertical:2,
+      marginLeft:10,
+      marginRight:10,
     },
     botonAñadir:{
       ...GlobalStyles.boton,

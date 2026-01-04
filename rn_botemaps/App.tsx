@@ -1,7 +1,7 @@
 import { Text, View, FlatList, Alert, Modal } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import InfoCard from './componentes/InfoCard'
-import { crearNuevoLugar, listarBotellones } from './utils/Crud'
+import { borrarBotellon, crearNuevoLugar, listarBotellones } from './utils/Crud'
 import { Botellon, Botellones, Formulario } from './model/Tipos'
 import { GlobalStyles as styles } from './estilos/GlobalStyles'
 import DetalleBotellon from './componentes/DetalleBotellon'
@@ -47,6 +47,29 @@ export default function App() {
               .catch(error=>mostrarError(error.toString()))
   }
 
+  function borrarBote(){
+    Alert.alert(
+      `Esta seguro de que quiere borrar ${botellonSeleccionado?.nombre}?`,
+      "La accion no se podra revertir",
+      [
+        {text:"Si, eliminar", onPress:realizarBorrado},
+        {text:"No, cancelar"}
+      ]
+    )
+  }
+
+  function realizarBorrado(){
+    if(botellonSeleccionado!==undefined){
+      borrarBotellon(botellonSeleccionado)
+          .then(()=>{
+            const nuevaLista = botellones.filter(lugar=>lugar.id !== botellonSeleccionado.id)
+            setBotellones(nuevaLista)
+            setBotellonSeleccionado(undefined)
+          })
+          .catch(error=>mostrarError(error.toString()))
+    }
+  } 
+
   function mostrarError(error: string) {
     Alert.alert('Error al cargar', error)
   }
@@ -73,6 +96,7 @@ export default function App() {
             <DetalleBotellon
               tarjetaSelec={botellonSeleccionado}
               cerrarModal={cerrarDetallesBotellon}
+              eliminarBotellon={borrarBote}
               onNuevaReseña={(idBotellon, reseña) =>{
                 const nuevosBotellones=[]
 

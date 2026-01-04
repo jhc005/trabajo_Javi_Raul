@@ -6,7 +6,7 @@
       "ubicacion": "Zona centro de Granada",
       "pueblo": "Granada",
       "foto": "https://turismo.granada.org/sites/default/files/2023-09/_DSC4837.jpg",
-      "descripcion": "El Paseo del Salón es una de las zonas más conocidas para botellones en Granada, especialmente entre universitarios. Su cercanía al centro y al río Genil lo convierte en un punto de encuentro habitual durante los fines de semana. Es una zona amplia con buen ambiente nocturno, aunque suele estar vigilada.",
+      "descripcion": "El Paseo del Salón es una de las zonas más conocidas para botellones en Granada, especialmente entre universitarios. Su cercanía al centro y al río Genil lo convierte en un punto de encuentro habitual durante los fines de semana.",
       "reseñas": []
     },
     {
@@ -15,7 +15,7 @@
       "ubicacion": "Zona Zaidín",
       "pueblo": "Granada",
       "foto": "https://turispain.es/wp-content/uploads/2025/05/Parque-Tico-Medina-1.jpeg",
-      "descripcion": "El Parque Tico Medina es una alternativa popular para hacer botellón en Granada, especialmente cuando otras zonas están más controladas. Es un espacio amplio, algo más apartado del centro, lo que permite reuniones más tranquilas y grupos grandes.",
+      "descripcion": "El Parque Tico Medina es una alternativa popular para hacer botellón en Granada, especialmente cuando otras zonas están más controladas. Es un espacio amplio, algo más apartado del centro.",
       "reseñas": []
     },
     {
@@ -24,7 +24,7 @@
       "ubicacion": "Campus Universitario de Cartuja",
       "pueblo": "Granada",
       "foto": "https://i.ytimg.com/vi/jfvHlrP3il8/maxresdefault.jpg",
-      "descripcion": "El Campus de Cartuja es frecuentado por estudiantes que organizan botellones antes de bajar al centro. Sus espacios abiertos y zonas verdes lo hacen atractivo, aunque suele haber presencia policial en determinadas fechas.",
+      "descripcion": "El Campus de Cartuja es frecuentado por estudiantes que organizan botellones antes de bajar al centro. Sus espacios abiertos y zonas verdes lo hacen atractivo, aunque suele haber presencia policial.",
       "reseñas": []
     },
     {
@@ -33,7 +33,7 @@
       "ubicacion": "Barrio del Albaicín",
       "pueblo": "Granada",
       "foto": "https://rinconesdegranada.com/wp-content/uploads/2018/01/ERMITA-DE-SAN-MIGUEL-ALTO.jpg",
-      "descripcion": "El Mirador de San Miguel Alto ofrece vistas espectaculares de la Alhambra y la ciudad, lo que lo convierte en un lugar especial para reuniones nocturnas. Aunque no es un botellón masivo, es popular para grupos pequeños que buscan un ambiente más relajado.",
+      "descripcion": "El Mirador de San Miguel Alto ofrece vistas espectaculares de la Alhambra y la ciudad, lo que lo convierte en un lugar especial para reuniones nocturnas.",
       "reseñas": []
     },
     {
@@ -42,7 +42,7 @@
       "ubicacion": "Zona Camino de Ronda",
       "pueblo": "Granada",
       "foto": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/52000/52386-Parque-Garcia-Lorca.jpg",
-      "descripcion": "El Parque Federico García Lorca es uno de los espacios verdes más grandes de Granada y, en ocasiones, es utilizado para botellones discretos. Es una zona accesible y bien comunicada, aunque con controles frecuentes en horarios nocturnos.",
+      "descripcion": "El Parque Federico García Lorca es uno de los espacios verdes más grandes de Granada y, en ocasiones, es utilizado para botellones discretos. Es una zona accesible y bien comunicada.",
       "reseñas": []
     },
     {
@@ -89,15 +89,6 @@
       "foto": "https://media.tacdn.com/media/attractions-splice-spp-674x446/12/42/ef/47.jpg",
       "descripcion": "Aunque es más turístico, la zona alrededor de la Alhambra a veces sirve como punto de encuentro para grupos pequeños, aprovechando las vistas panorámicas de la ciudad.",
       "reseñas": []
-    },
-    {
-      "id": "48d23a28-b800-4f82-9a26-c1f09422b6b5",
-      "nombre": "",
-      "ubicacion": "",
-      "pueblo": "",
-      "foto": "",
-      "descripcion": "",
-      "reseña": []
     }
   ]
 }
