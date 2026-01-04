@@ -6,7 +6,7 @@ import { Image } from 'expo-image'
 import ReviewCard from './ReviewCard'
 import FilaEstrellas from './FilaEstrellas'
 import Boton from './Boton'
-import { v4 } from 'react-native-uuid/dist/v4'
+import { v4 } from "react-native-uuid/dist/v4";
 
 type DetalleBotellonProps={
     tarjetaSelec: Botellon
