@@ -1,6 +1,6 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { generarListaIdsEstrellas } from '../utils/Crud'
+import { generarListaIdsEstrellas } from '../utils/Functions'
 import { MaterialIcons } from '@expo/vector-icons'
 import { GlobalStyles } from '../estilos/GlobalStyles'
 
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fila:{
         flexDirection:"row",
 
-    }
+    },
+    
 
 })

@@ -32,11 +32,5 @@ export async function borrarBotellon(botellon:Botellon){
     await axios.delete(url)
 }
 
-export async function llamarMapa(direccion:string) {
-    
-}
 
-export const generarListaIdsEstrellas = ( numero:number):number[] => {
-    
-    return Array.from({length:numero}, (_,index) => index + 1)
-}
+

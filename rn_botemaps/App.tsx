@@ -72,7 +72,36 @@ export default function App() {
           <Modal transparent={false} animationType="slide">
             <DetalleBotellon
               tarjetaSelec={botellonSeleccionado}
-              cerrarModal={cerrarDetallesBotellon}/>
+              cerrarModal={cerrarDetallesBotellon}
+              onNuevaReseña={(idBotellon, reseña) =>{
+                const nuevosBotellones=[]
+
+                for(let i=0; i< botellones.length;i++){
+                  const b= botellones[i]
+
+                  const reseñasActuales= b.reseña || []
+
+                  if(b.id == idBotellon){
+                    const nuevoBotellon={
+                      id: b.id,
+                      nombre: b.nombre,
+                      ubicacion: b.ubicacion,
+                      pueblo: b.pueblo,
+                      foto: b.foto,
+                      descripcion: b.descripcion,
+                      reseña: [reseña].concat(reseñasActuales)
+                    }
+                    nuevosBotellones.push(nuevoBotellon)
+                  }else {
+                    nuevosBotellones.push(b)
+                  }
+                  
+                }
+                setBotellones(nuevosBotellones)
+                
+                const actualizado= nuevosBotellones.find(b=> b.id === idBotellon)
+                setBotellonSeleccionado(actualizado)
+              }}/>
           </Modal>
         )
       }

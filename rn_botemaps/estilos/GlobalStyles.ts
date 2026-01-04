@@ -39,13 +39,13 @@ export const GlobalStyles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
-  textContainer: {
-    flex: 1,
-    paddingRight: 10,
-    justifyContent: 'center',
-    marginTop:10,
-    marginBottom:10
-  },
+    textContainer: {
+      flex: 1,
+      paddingRight: 10,
+      justifyContent: 'center',
+      marginTop:10,
+      marginBottom:10
+    },
   cardTitle: {
     fontSize: 16,
     fontWeight: 'bold',
@@ -164,4 +164,19 @@ icono: {
     color: '#ffffff',
     textAlign: 'center',
   },
+fila:{
+      flexDirection:"row",
+      width:"100%",
+      gap:10,
+
+  },
+map:{
+    width:"100%",
+    height:100,
+    borderRadius:20,
+    marginTop:10
+
+    
+  }
+  
 })
