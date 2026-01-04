@@ -7,6 +7,7 @@ export const Colors = {
   cardBackground: '#F3E5F5', 
   text: '#222222',       
   subtitle: '#555555',   
+  placeholder:"#8E7A8A"
 }
 
 export const GlobalStyles = StyleSheet.create({
@@ -42,6 +43,8 @@ export const GlobalStyles = StyleSheet.create({
     flex: 1,
     paddingRight: 10,
     justifyContent: 'center',
+    marginTop:10,
+    marginBottom:10
   },
   cardTitle: {
     fontSize: 16,
@@ -58,4 +61,53 @@ export const GlobalStyles = StyleSheet.create({
     height: 90,
     borderRadius: 10,
   },
+  text:{
+    fontSize:14,
+    textAlign:"center",
+    color: Colors.text
+  },
+  boton:{
+    backgroundColor: Colors.secondary,
+    borderRadius: 14,
+    paddingVertical:10,
+    
+    
+  },
+  detailImage:{
+    width:"100%",
+    aspectRatio:1
+  },
+  fullStar:{
+    fontSize:16,
+    color:"#ffd700"
+  },
+  emptyStar:{
+    fontSize:16,
+    color:"#cccccc"
+  },
+  reviewContainer:{
+    color: Colors.cardBackground,
+    borderRadius:14,
+    shadowColor:"#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    columnGap:20,
+    rowGap:4
+  },
+  textInput:{
+    backgroundColor: Colors.cardBackground,
+    flex:1,
+    borderRadius:14,
+    minHeight:44,
+    justifyContent:"center",
+    fontSize:14,
+    paddingHorizontal:16,
+    elevation: 4,
+    shadowColor: '#000', 
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+
+  }
 })

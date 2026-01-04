@@ -1,13 +1,14 @@
-import { Text, View, FlatList, Alert } from 'react-native'
+import { Text, View, FlatList, Alert, Modal } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import InfoCard from './componentes/InfoCard'
 import { listarBotellones } from './utils/Crud'
 import { Botellon, Botellones } from './model/Tipos'
 import { GlobalStyles as styles } from './estilos/GlobalStyles'
+import DetalleBotellon from './componentes/DetalleBotellon'
 
 export default function App() {
   const [botellones, setBotellones] = useState<Botellones>([])
-
+  const [botellonSeleccionado, setBotellonSeleccionado] = useState<Botellon | undefined>(undefined)
   useEffect(accionCargarBotellones, [])
 
   function accionCargarBotellones() {
@@ -15,13 +16,19 @@ export default function App() {
       .then(botes => setBotellones(botes))
       .catch(error => mostrarError(error.toString()))
   }
+  function abrirDetallesBotellones(botellon : Botellon ){
+      setBotellonSeleccionado(botellon)
+  }
+  function cerrarDetallesBotellon(){
+    setBotellonSeleccionado(undefined)
+  }
 
   function mostrarError(error: string) {
     Alert.alert('Error al cargar', error)
   }
 
   function getBotellon(botellon: Botellon) {
-    return <InfoCard item={botellon} />
+    return <InfoCard item={botellon} abrirDetalleBotellon={abrirDetallesBotellones}/>
   }
 
   return (
@@ -36,6 +43,15 @@ export default function App() {
           showsVerticalScrollIndicator={true}
         />
       </View>
+      {
+        botellonSeleccionado !==undefined &&(
+          <Modal transparent={false} animationType="slide">
+            <DetalleBotellon
+              tarjetaSelec={botellonSeleccionado}
+              cerrarModal={cerrarDetallesBotellon}/>
+          </Modal>
+        )
+      }
     </View>
   )
 }

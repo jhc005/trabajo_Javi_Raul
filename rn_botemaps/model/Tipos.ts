@@ -6,7 +6,7 @@ export type Botellon = {
     pueblo:string
     foto:string
     descripcion:string
-    reseña:Array<String>
+    reseña: Reseña[]
 }
 
 export type Formulario = {
@@ -15,7 +15,16 @@ export type Formulario = {
     pueblo:string
     foto:string
     descripcion:string
-    reseña:Array<String>
+    reseña:Reseña[]
 }
 
 export type Botellones = Array<Botellon>
+
+export type Reseña={
+    id: string
+    comentario: string
+    fecha: string 
+    puntuacion: number
+}
+
+export type Reseñas = Array<Reseña>
