@@ -1,82 +1,110 @@
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
-import React, { useState } from 'react'
-import { Formulario, Reseñas } from '../model/Tipos'
-import Boton from './Boton'
-import { Image } from 'expo-image'
-import { GlobalStyles } from '../estilos/GlobalStyles'
+import {
+  Alert,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import React, { useState } from "react";
+import { Formulario, Reseñas } from "../model/Tipos";
+import Boton from "./Boton";
+import { Image } from "expo-image";
+import { GlobalStyles } from "../estilos/GlobalStyles";
 
 type Props = {
-    aceptar: (datos:Formulario) => void
-    cerrar: () => void
-}
+  aceptar: (datos: Formulario) => void;
+  cerrar: () => void;
+};
 
-export default function CrearBotellon({aceptar,cerrar}:Props) {
-    //variables de estado 
-    const [nombre,setNombre]= useState("")
-    const [ubicacion,setUbicacion]= useState("")
-    const [pueblo,setPueblo]= useState("")
-    const [foto,setFoto]= useState("")
-    const [descripcion,setDescripcion]= useState("")
-    const [reseña,setReseña]= useState<Reseñas>([])
+export default function CrearBotellon({ aceptar, cerrar }: Props) {
+  //variables de estado
+  const [nombre, setNombre] = useState("");
+  const [ubicacion, setUbicacion] = useState("");
+  const [pueblo, setPueblo] = useState("");
+  const [foto, setFoto] = useState("");
+  const [descripcion, setDescripcion] = useState("");
+  const [reseña, setReseña] = useState<Reseñas>([]);
 
-    //funciones
-  function cogerDatos():Formulario{
-    return {nombre,ubicacion,pueblo,foto,descripcion,reseña}
+  //funciones
+  function cogerDatos(): Formulario {
+    return { nombre, ubicacion, pueblo, foto, descripcion, reseña };
   }
+  function validar() {
+    if (
+      nombre.trim() === "" ||
+      ubicacion.trim() === "" ||
+      pueblo.trim() === "" ||
+      descripcion.trim() === ""
+    ) {
+      Alert.alert(
+        "Campos incompletos",
+        "Por favor, rellena todos los campos obligatorios."
+      );
+      return;
+    } else {
+      aceptar(cogerDatos());
+    }
+  }
+
   return (
-    <ScrollView contentContainerStyle={{flexGrow: 1 }}>
+    <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
       <View style={GlobalStyles.formContainer}>
         <Text style={GlobalStyles.formTitle}>AÑADIR BOTELLON NUEVO</Text>
-        <Image source={foto} contentFit='cover' style={GlobalStyles.imagePreview}/>
+        <Image
+          source={foto}
+          contentFit="cover"
+          style={GlobalStyles.imagePreview}
+        />
         <TextInput
           value={nombre}
           onChangeText={setNombre}
           style={GlobalStyles.textInput}
-          placeholder='Nombre del botellon'
+          placeholder="Nombre del botellon"
           placeholderTextColor={"#9ca3af"}
         />
         <TextInput
           value={ubicacion}
           onChangeText={setUbicacion}
           style={GlobalStyles.textInput}
-          placeholder='Ubicacion(Calle o zona)'
+          placeholder="Ubicacion(Calle o zona)"
           placeholderTextColor={"#9ca3af"}
         />
         <TextInput
           value={pueblo}
           onChangeText={setPueblo}
           style={GlobalStyles.textInput}
-          placeholder='Nombre del pueblo'
+          placeholder="Nombre del pueblo"
           placeholderTextColor={"#9ca3af"}
         />
         <TextInput
           value={foto}
           onChangeText={setFoto}
           style={GlobalStyles.textInput}
-          placeholder='URL foto'
+          placeholder="URL foto"
           placeholderTextColor={"#9ca3af"}
         />
         <TextInput
           value={descripcion}
           onChangeText={setDescripcion}
           style={GlobalStyles.textInput}
-          placeholder='Descripcion'
+          placeholder="Descripcion"
           placeholderTextColor={"#9ca3af"}
         />
         <TextInput
           value={reseña as any}
           onChangeText={setReseña as any}
           style={GlobalStyles.textInput}
-          placeholder='Reseña (dejar vacia)'
+          placeholder="Reseña (dejar vacia)"
           placeholderTextColor={"#9ca3af"}
         />
         <View style={GlobalStyles.buttonsContainer}>
-          <Boton texto='Aceptar' onPress={()=>aceptar(cogerDatos())}/>
-          <Boton texto='Cancelar' onPress={cerrar}/>
+          <Boton texto="Aceptar" onPress={validar} />
+          <Boton texto="Cancelar" onPress={cerrar} />
         </View>
       </View>
     </ScrollView>
-  )
+  );
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
