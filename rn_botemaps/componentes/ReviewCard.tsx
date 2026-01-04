@@ -13,10 +13,10 @@ type reviewCardProps={
 export default function ReviewCard({item, estrella} :reviewCardProps) {
 
     return (
-    <View style={GlobalStyles.card}>
+    <View style={styles.cardModificada}>
         <FilaEstrellas
             estrellas={estrella}/>
-        <View style={GlobalStyles.fila}>
+        <View style={styles.filaModificada}>
             <Text style={GlobalStyles.cardSubtitle}>{dayjs(item.fecha).format("DD/MM/YYYY")}</Text>
             <View style={GlobalStyles.textContainer}>
                 <Text style={GlobalStyles.cardSubtitle}>{item.comentario}</Text>
@@ -27,4 +27,13 @@ export default function ReviewCard({item, estrella} :reviewCardProps) {
   )
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    cardModificada:{
+        ...GlobalStyles.card,
+        flexDirection:"column"
+    },
+    filaModificada:{
+        ...GlobalStyles.fila,
+        flexDirection:"column"
+    }
+})
