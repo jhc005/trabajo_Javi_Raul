@@ -16,10 +16,13 @@ export default function ReviewCard({item, estrella} :reviewCardProps) {
     <View style={GlobalStyles.card}>
         <FilaEstrellas
             estrellas={estrella}/>
-        <Text style={GlobalStyles.cardSubtitle}>{dayjs(item.fecha).format("DD/MM/YYYY")}</Text>
-        <View style={GlobalStyles.textContainer}>
-            <Text style={GlobalStyles.cardSubtitle}>{item.comentario}</Text>
+        <View style={GlobalStyles.fila}>
+            <Text style={GlobalStyles.cardSubtitle}>{dayjs(item.fecha).format("DD/MM/YYYY")}</Text>
+            <View style={GlobalStyles.textContainer}>
+                <Text style={GlobalStyles.cardSubtitle}>{item.comentario}</Text>
+            </View>
         </View>
+        
     </View>
   )
 }

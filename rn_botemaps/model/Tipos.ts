@@ -1,5 +1,5 @@
 
-export type Botellon = {
+export type  Botellon = {
     id:string,
     nombre:string
     ubicacion: string

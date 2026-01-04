@@ -109,5 +109,11 @@ export const GlobalStyles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
 
-  }
+  },
+  fila:{
+      flexDirection:"row",
+      width:"100%",
+      gap:10,
+
+    }
 })

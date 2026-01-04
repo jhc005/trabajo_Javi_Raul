@@ -11,14 +11,15 @@ import { v4 } from 'react-native-uuid/dist/v4'
 type DetalleBotellonProps={
     tarjetaSelec: Botellon
     cerrarModal: () => void
+    onNuevaReseña:(id: string, reseña: Reseña) => void
 }
 type NuevaReseña={
   comentario: string
   puntuacion: number
 }
 
-export default function DetalleBotellon({tarjetaSelec, cerrarModal} :DetalleBotellonProps) {
-  const [reseñas, setReseñas] = useState<Reseña[]> (tarjetaSelec.reseña)
+export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña} :DetalleBotellonProps) {
+  //const [reseñas, setReseñas] = useState<Reseña[]> (tarjetaSelec.reseña ?? [])
   const [puntuacion, setPuntuacion] =useState(0)
   const [comentario, setComentario]=useState("")
 
@@ -41,7 +42,7 @@ export default function DetalleBotellon({tarjetaSelec, cerrarModal} :DetalleBote
       puntuacion,
       
     })
-    setReseñas(prev => [nuevaReseña, ...prev])
+    onNuevaReseña(tarjetaSelec.id, nuevaReseña)
 
     setPuntuacion(0)
     setComentario("")
@@ -60,14 +61,14 @@ export default function DetalleBotellon({tarjetaSelec, cerrarModal} :DetalleBote
         
         <View style={GlobalStyles.listContainer}>
           <FlatList
-            data={reseñas}
+            data={tarjetaSelec.reseña || []}
             keyExtractor={item => item.id}
             renderItem={({item}) => getReseña(item)}
             ListEmptyComponent={<Text style={GlobalStyles.text}>No hay reseñas todavia</Text>}/>
         </View>
         <View style={GlobalStyles.reviewContainer}>
           <FilaEstrellas estrellas={puntuacion} setEstrellas={setPuntuacion}/>
-          <View style={styles.fila}>
+          <View style={GlobalStyles.fila}>
             <TextInput
             style={GlobalStyles.textInput}
             placeholder='comentario'
@@ -129,11 +130,6 @@ const styles = StyleSheet.create({
       marginTop:10,
       marginBottom:10
     },
-    fila:{
-      flexDirection:"row",
-      width:"100%",
-      gap:10,
-
-    }
+    
 
 })
