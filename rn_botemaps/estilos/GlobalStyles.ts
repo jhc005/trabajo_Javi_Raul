@@ -67,7 +67,6 @@ export const GlobalStyles = StyleSheet.create({
     color: Colors.text
   },
   boton:{
-    backgroundColor: Colors.secondary,
     borderRadius: 14,
     paddingVertical:10,
     
@@ -108,20 +107,84 @@ export const GlobalStyles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,
-
   },
-  fila:{
+  formContainer: {
+  flex: 1,
+  backgroundColor: Colors.background,
+  paddingHorizontal: 16,
+  gap:8
+},
+
+
+formTitle: {
+  textAlign: 'center',
+  fontSize: 22,
+  fontWeight: 'bold',
+  color: Colors.primary,
+  marginBottom: 20,
+},
+
+imagePreview: {
+  width: '100%',
+  height: 200,
+  borderRadius: 14,
+  backgroundColor: Colors.cardBackground,
+  marginBottom: 16,
+  elevation: 4,
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 4,
+},
+
+buttonsContainer: {
+  flex: 1,
+  justifyContent: "flex-end",
+  rowGap: 10,
+},
+
+pressIcono: {
+  position: 'absolute',
+  width: 56,
+  height: 56,
+  borderRadius: 28,
+  backgroundColor: Colors.secondary,
+  bottom: 24,
+  right: 24,
+  justifyContent: 'center',
+  alignItems: 'center',
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 3 },
+  shadowOpacity: 0.3,
+  shadowRadius: 4.65,
+  elevation: 7,
+},
+icono: {
+    fontSize: 24,
+    color: '#ffffff',
+    textAlign: 'center',
+  },
+fila:{
+
       flexDirection:"row",
       width:"100%",
       gap:10,
 
   },
-  map:{
-    width:"100%",
-    height:100,
-    borderRadius:20,
-    marginTop:10
+
+  mapContainer:{
+    
+    borderRadius:15,
+    marginTop:10,
+    marginHorizontal:16,
+    overflow:"hidden"
 
     
+  },
+  map:{
+    height:200,
+    padding:12,
+    width:"100%"
   }
+  
 })

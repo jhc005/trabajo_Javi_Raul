@@ -1,7 +1,8 @@
+
 import { FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { Colors, GlobalStyles } from '../estilos/GlobalStyles'
-import { Botellon, Reseña, Reseñas } from '../model/Tipos'
+import { Botellon, Reseña} from '../model/Tipos'
 import { Image } from 'expo-image'
 import ReviewCard from './ReviewCard'
 import FilaEstrellas from './FilaEstrellas'
@@ -13,13 +14,18 @@ type DetalleBotellonProps={
     tarjetaSelec: Botellon
     cerrarModal: () => void
     onNuevaReseña:(id: string, reseña: Reseña) => void
+    eliminarBotellon: () => void 
 }
 type NuevaReseña={
   comentario: string
   puntuacion: number
 }
 
-export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña} :DetalleBotellonProps) {
+
+
+
+export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña, eliminarBotellon} :DetalleBotellonProps) {
+
   
   const [puntuacion, setPuntuacion] =useState(0)
   const [comentario, setComentario]=useState("")
@@ -56,26 +62,7 @@ export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaRese�
             source={tarjetaSelec.foto}
             contentFit="cover"
             style={styles.imagen}/>
-          {
-            typeof tarjetaSelec.latitud=== "number" &&
-            typeof tarjetaSelec.longitud=== "number" &&(
-              <MapView
-            style={GlobalStyles.map}
-            initialRegion={{
-              latitude:tarjetaSelec.latitud,
-              longitude:tarjetaSelec.longitud,
-              latitudeDelta:0.01,
-              longitudeDelta:0.01
-            }}
-            mapType="standard">
-              <Marker
-                coordinate={{
-                  latitude:tarjetaSelec.latitud,
-                  longitude:tarjetaSelec.longitud
-                }}/>
-          </MapView>
-            )
-          }
+          
             <ScrollView
               style={{maxHeight:100}}
               contentContainerStyle={GlobalStyles.textContainer} >
@@ -112,6 +99,13 @@ export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaRese�
               texto={"SALIR"}
               onPress={cerrarModal}/>
             </View>
+
+            <View style={styles.botonEliminar}>
+              <Boton
+              texto={"ELIMINAR"}
+              onPress={eliminarBotellon}/>
+            </View>
+
           </View>
             
         </View>
@@ -133,16 +127,27 @@ const styles = StyleSheet.create({
     },
     botonSalir:{
       ...GlobalStyles.boton,
+      backgroundColor: Colors.secondary,
       justifyContent:"center",
       alignItems:"center",
-      marginTop:20,
+      marginTop:10,
       paddingVertical:2,
-      marginBottom:10,
       marginLeft:10,
       marginRight:10
     },
+    botonEliminar:{
+      backgroundColor:"#FF0000",
+      borderRadius: 14,
+      justifyContent:"center",
+      alignItems:"center",
+      marginTop:10,
+      paddingVertical:2,
+      marginLeft:10,
+      marginRight:10,
+    },
     botonAñadir:{
       ...GlobalStyles.boton,
+      backgroundColor: Colors.secondary,
       paddingHorizontal:12,
       minHeight:44,
       justifyContent:"center"
