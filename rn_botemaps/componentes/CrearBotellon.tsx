@@ -10,7 +10,7 @@ import React, { useState } from "react";
 import { Formulario, Reseñas } from "../model/Tipos";
 import Boton from "./Boton";
 import { Image } from "expo-image";
-import { GlobalStyles } from "../estilos/GlobalStyles";
+import { Colors, GlobalStyles } from "../estilos/GlobalStyles";
 
 type Props = {
   aceptar: (datos: Formulario) => void;
@@ -98,8 +98,10 @@ export default function CrearBotellon({ aceptar, cerrar }: Props) {
           placeholder="Reseña (dejar vacia)"
           placeholderTextColor={"#9ca3af"}
         />
-        <View style={GlobalStyles.buttonsContainer}>
+        <View style={styles.botonSalir}>
           <Boton texto="Aceptar" onPress={validar} />
+        </View>
+        <View style={styles.botonSalir}>
           <Boton texto="Cancelar" onPress={cerrar} />
         </View>
       </View>
@@ -107,4 +109,15 @@ export default function CrearBotellon({ aceptar, cerrar }: Props) {
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  botonSalir:{
+        ...GlobalStyles.boton,
+        backgroundColor: Colors.secondary,
+        justifyContent:"center",
+        alignItems:"center",
+        marginTop:10,
+        paddingVertical:2,
+        marginLeft:10,
+        marginRight:10
+      },
+});

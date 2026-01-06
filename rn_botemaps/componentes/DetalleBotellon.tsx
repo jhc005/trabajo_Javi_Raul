@@ -1,5 +1,5 @@
 
-import { FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 import { Colors, GlobalStyles } from '../estilos/GlobalStyles'
 import { Botellon, Reseña} from '../model/Tipos'
@@ -8,7 +8,6 @@ import ReviewCard from './ReviewCard'
 import FilaEstrellas from './FilaEstrellas'
 import Boton from './Boton'
 import { v4 } from 'react-native-uuid/dist/v4'
-import MapView, { Marker } from 'react-native-maps'
 
 type DetalleBotellonProps={
     tarjetaSelec: Botellon
@@ -20,9 +19,6 @@ type NuevaReseña={
   comentario: string
   puntuacion: number
 }
-
-
-
 
 export default function DetalleBotellon({tarjetaSelec, cerrarModal, onNuevaReseña, eliminarBotellon} :DetalleBotellonProps) {
 

@@ -1,150 +1,177 @@
-import { Text, View, FlatList, Alert, Modal } from 'react-native'
+import { Text, View, FlatList, Alert, Modal, Platform } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import InfoCard from './componentes/InfoCard'
 import { borrarBotellon, crearNuevoLugar, listarBotellones } from './utils/Crud'
 import { Botellon, Botellones, Formulario } from './model/Tipos'
-import { GlobalStyles, GlobalStyles as styles } from './estilos/GlobalStyles'
+import { GlobalStyles as styles } from './estilos/GlobalStyles'
 import DetalleBotellon from './componentes/DetalleBotellon'
 import Add from './componentes/Add'
 import CrearBotellon from './componentes/CrearBotellon'
-import MapView, { Marker } from 'react-native-maps'
 import Map from './componentes/Map'
+import * as Notifications from 'expo-notifications'
+import Buscador from './componentes/Buscador'
+
+/*Configuración notificaciones */
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldShowAlert: true,
+    shouldShowBanner: true,
+    shouldShowList: true,
+    shouldPlaySound: true,
+    shouldSetBadge: false,
+  }),
+})
+
 
 export default function App() {
-  //variables de estado
+  //variables de estado 
   const [botellones, setBotellones] = useState<Botellones>([])
   const [botellonSeleccionado, setBotellonSeleccionado] = useState<Botellon | undefined>(undefined)
-  const [modalCrear,setModalCrear]=useState(false)
-  useEffect(accionCargarBotellones, [])
+  const [modalCrear, setModalCrear] = useState(false)
+  const [busqueda, setBusqueda] = useState('')
 
+  useEffect(() => {
+    accionCargarBotellones()
+    registrarNotificaciones()
+  }, [])
+
+  /*Permisos */
+  async function registrarNotificaciones() {
+    const { status } = await Notifications.getPermissionsAsync()
+    let finalStatus = status
+
+    if (status !== 'granted') {
+      const request = await Notifications.requestPermissionsAsync()
+      finalStatus = request.status
+    }
+
+    if (finalStatus !== 'granted') {
+      Alert.alert('Permisos', 'No se aceptaron notificaciones')
+      return
+    }
+
+    if (Platform.OS === 'android') {
+      await Notifications.setNotificationChannelAsync('default', {
+        name: 'default',
+        importance: Notifications.AndroidImportance.MAX,
+      })
+    }
+  }
 
   //funciones
+
   function accionCargarBotellones() {
     listarBotellones()
       .then(botes => setBotellones(botes))
       .catch(error => mostrarError(error.toString()))
   }
-  function abrirDetallesBotellones(botellon : Botellon ){
-      setBotellonSeleccionado(botellon)
+
+  function abrirDetallesBotellones(botellon: Botellon) {
+    setBotellonSeleccionado(botellon)
   }
-  function cerrarDetallesBotellon(){
+
+  function cerrarDetallesBotellon() {
     setBotellonSeleccionado(undefined)
   }
 
-  function abrirCreacion(botellon?:Botellon){
+  function abrirCreacion() {
     setModalCrear(true)
   }
 
-  function cerrarCreacion(){
+  function cerrarCreacion() {
     setModalCrear(false)
   }
 
-  function accionCrear(datos:Formulario){
+  function accionCrear(datos: Formulario) {
     crearNuevoLugar(datos)
-              .then( nuevoBotellon => {
-                setModalCrear(false)
-                const nuevoBote = [...botellones, nuevoBotellon]
-                setBotellones(nuevoBote)
-              })
-              .catch(error=>mostrarError(error.toString()))
+      .then(nuevoBotellon => {
+        setModalCrear(false)
+        setBotellones([...botellones, nuevoBotellon])
+      })
+      .catch(error => mostrarError(error.toString()))
   }
 
-  function borrarBote(){
+  function borrarBote() {
     Alert.alert(
-      `Esta seguro de que quiere borrar ${botellonSeleccionado?.nombre}?`,
-      "La accion no se podra revertir",
+      `¿Eliminar ${botellonSeleccionado?.nombre}?`,
+      'La acción no se podrá revertir',
       [
-        {text:"Si, eliminar", onPress:realizarBorrado},
-        {text:"No, cancelar"}
+        { text: 'Si, eliminar', onPress: realizarBorrado },
+        { text: 'No, cancelar' },
       ]
     )
   }
 
-  function realizarBorrado(){
-    if(botellonSeleccionado!==undefined){
+  function realizarBorrado() {
+    if (botellonSeleccionado) {
       borrarBotellon(botellonSeleccionado)
-          .then(()=>{
-            const nuevaLista = botellones.filter(lugar=>lugar.id !== botellonSeleccionado.id)
-            setBotellones(nuevaLista)
-            setBotellonSeleccionado(undefined)
-          })
-          .catch(error=>mostrarError(error.toString()))
+        .then(() => {
+          setBotellones(botellones.filter(b => b.id !== botellonSeleccionado.id))
+          setBotellonSeleccionado(undefined)
+        })
+        .catch(error => mostrarError(error.toString()))
     }
-  } 
+  }
 
   function mostrarError(error: string) {
-    Alert.alert('Error al cargar', error)
+    Alert.alert('Error', error)
   }
 
   function getBotellon(botellon: Botellon) {
-    return <InfoCard item={botellon} abrirDetalleBotellon={abrirDetallesBotellones}/>
+    return (
+      <InfoCard
+        item={botellon}
+        abrirDetalleBotellon={abrirDetallesBotellones}
+      />
+    )
   }
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>BOTEMAPS</Text>
-      <Map/>
+
+      <Buscador onSearch={setBusqueda} />
+
+      <Map />
+
       <View style={styles.listContainer}>
         <FlatList
-          data={botellones}
+          data={botellones.filter(b => b.pueblo.toLowerCase().includes(busqueda.toLowerCase()))}
           keyExtractor={item => item.id}
           renderItem={({ item }) => getBotellon(item)}
-          showsVerticalScrollIndicator={true}
         />
       </View>
-      {
-        botellonSeleccionado !==undefined &&(
-          <Modal transparent={false} animationType="slide">
-            <DetalleBotellon
-              tarjetaSelec={botellonSeleccionado}
-              cerrarModal={cerrarDetallesBotellon}
 
-              eliminarBotellon={borrarBote}
-              onNuevaReseña={(idBotellon, reseña) =>{
-                const nuevosBotellones=[]
+      {botellonSeleccionado && (
+        <Modal animationType="slide">
+          <DetalleBotellon
+            tarjetaSelec={botellonSeleccionado}
+            cerrarModal={cerrarDetallesBotellon}
+            eliminarBotellon={borrarBote}
+            onNuevaReseña={(idBotellon, reseña) => {
+              const nuevos = botellones.map(b =>
+                b.id === idBotellon
+                  ? { ...b, reseña: [reseña, ...(b.reseña || [])] }
+                  : b
+              )
+              setBotellones(nuevos)
+              setBotellonSeleccionado(nuevos.find(b => b.id === idBotellon))
+            }}
+          />
+        </Modal>
+      )}
 
-                for(let i=0; i< botellones.length;i++){
-                  const b= botellones[i]
+      {modalCrear && (
+        <Modal animationType="slide">
+          <CrearBotellon aceptar={accionCrear} cerrar={cerrarCreacion} />
+        </Modal>
+      )}
 
-                  const reseñasActuales= b.reseña || []
-
-                  if(b.id == idBotellon){
-                    const nuevoBotellon={
-                      id: b.id,
-                      nombre: b.nombre,
-                      ubicacion: b.ubicacion,
-                      pueblo: b.pueblo,
-                      foto: b.foto,
-                      descripcion: b.descripcion,
-                      reseña: [reseña].concat(reseñasActuales)
-                    }
-                    nuevosBotellones.push(nuevoBotellon)
-                  }else {
-                    nuevosBotellones.push(b)
-                  }
-                  
-                }
-                setBotellones(nuevosBotellones)
-                
-                const actualizado= nuevosBotellones.find(b=> b.id === idBotellon)
-                setBotellonSeleccionado(actualizado)
-              }}/>
-          </Modal>
-        )
-      }
-      {
-        modalCrear &&(
-          <Modal transparent={false} animationType='slide'>
-            <CrearBotellon
-            aceptar={accionCrear}
-            cerrar={cerrarCreacion}/>
-          </Modal>
-        )
-      }
-      <Add onPress={abrirCreacion}/>
+      <Add onPress={abrirCreacion} />
     </View>
   )
 }
+
 
 
 

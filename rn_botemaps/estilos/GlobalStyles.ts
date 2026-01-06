@@ -141,6 +141,7 @@ buttonsContainer: {
   flex: 1,
   justifyContent: "flex-end",
   rowGap: 10,
+  backgroundColor: Colors.background,
 },
 
 pressIcono: {
@@ -184,7 +185,25 @@ fila:{
   map:{
     height:200,
     padding:12,
-    width:"100%"
+    width:"100%"  },
+
+  searchBarContainer: {
+    padding: 10,
+    backgroundColor: Colors.cardBackground,
+  },
+  searchBarInput: {
+    height: 40,
+    borderColor: Colors.secondary,
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 10,
+    backgroundColor: '#fff',  
+  },
+  corazon:{
+    flexDirection: 'row', 
+    justifyContent: 'flex-end', 
+    paddingRight: 10, 
+    paddingBottom: 5 
   }
   
 })

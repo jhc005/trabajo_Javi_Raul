@@ -13,7 +13,7 @@
       "id": "2",
       "nombre": "Botellón del Parque Tico Medina",
       "ubicacion": "Zona Zaidín",
-      "pueblo": "Granada",
+      "pueblo": "Zaidin",
       "foto": "https://turispain.es/wp-content/uploads/2025/05/Parque-Tico-Medina-1.jpeg",
       "descripcion": "El Parque Tico Medina es una alternativa popular para hacer botellón en Granada, especialmente cuando otras zonas están más controladas. Es un espacio amplio, algo más apartado del centro.",
       "reseñas": []
@@ -22,7 +22,7 @@
       "id": "3",
       "nombre": "Botellón del Campus de Cartuja",
       "ubicacion": "Campus Universitario de Cartuja",
-      "pueblo": "Granada",
+      "pueblo": "Cartuja",
       "foto": "https://i.ytimg.com/vi/jfvHlrP3il8/maxresdefault.jpg",
       "descripcion": "El Campus de Cartuja es frecuentado por estudiantes que organizan botellones antes de bajar al centro. Sus espacios abiertos y zonas verdes lo hacen atractivo, aunque suele haber presencia policial.",
       "reseñas": []
@@ -31,7 +31,7 @@
       "id": "4",
       "nombre": "Botellón del Mirador de San Miguel Alto",
       "ubicacion": "Barrio del Albaicín",
-      "pueblo": "Granada",
+      "pueblo": "Albaicin",
       "foto": "https://rinconesdegranada.com/wp-content/uploads/2018/01/ERMITA-DE-SAN-MIGUEL-ALTO.jpg",
       "descripcion": "El Mirador de San Miguel Alto ofrece vistas espectaculares de la Alhambra y la ciudad, lo que lo convierte en un lugar especial para reuniones nocturnas.",
       "reseñas": []
@@ -40,7 +40,7 @@
       "id": "5",
       "nombre": "Botellón del Parque García Lorca",
       "ubicacion": "Zona Camino de Ronda",
-      "pueblo": "Granada",
+      "pueblo": "Camino de Ronda",
       "foto": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/52000/52386-Parque-Garcia-Lorca.jpg",
       "descripcion": "El Parque Federico García Lorca es uno de los espacios verdes más grandes de Granada y, en ocasiones, es utilizado para botellones discretos. Es una zona accesible y bien comunicada.",
       "reseñas": []
@@ -58,7 +58,7 @@
       "id": "7",
       "nombre": "Botellón del Parque del Triunfo",
       "ubicacion": "Barrio del Realejo",
-      "pueblo": "Granada",
+      "pueblo": "Triunfo",
       "foto": "https://www.granadadirect.com/images/rincones/triunfo/fuente-triunfo.jpg",
       "descripcion": "El Parque del Triunfo es un espacio verde frecuentado por grupos de estudiantes. Es más tranquilo que las zonas céntricas y permite disfrutar de la tarde y noche al aire libre.",
       "reseñas": []
@@ -67,7 +67,7 @@
       "id": "8",
       "nombre": "Botellón de la Plaza de Toros",
       "ubicacion": "Zona Camino de Ronda",
-      "pueblo": "Granada",
+      "pueblo": "Camino de Ronda",
       "foto": "https://spaindmsmedia.newmindmedia.com/wsimgs/A2D2B48284C1D7D022290FF9C3A888B4297248EB.jpg",
       "descripcion": "La Plaza de Toros es conocida por ser un punto de encuentro alternativo. Aunque no es muy grande, se utiliza para reuniones de grupos medianos y es bastante accesible.",
       "reseñas": []
@@ -76,7 +76,7 @@
       "id": "9",
       "nombre": "Botellón de la Carrera del Genil",
       "ubicacion": "Zona centro-sur",
-      "pueblo": "Granada",
+      "pueblo": "Genil",
       "foto": "https://photos.wikimapia.org/p/00/01/57/87/62_big.jpg",
       "descripcion": "La Carrera del Genil es un lugar amplio y abierto, ideal para botellones cuando se busca un espacio más relajado y con menor control policial.",
       "reseñas": []
